@@ -16,13 +16,15 @@ export class BigImage extends React.Component {
 export class CatChoices extends React.Component {
 	render() {
 		const catList = this.props.cats;
-		const catBlocks = catList.map((cat) =>
-			  <Card key={cat.name}>
+		const catBlocks = catList.map((cat, index) =>
+			  <Card key={index}>
 			    <Card.Img variant="top" src={cat.src} />
 			    <Card.Body>
 			      <Card.Title>{cat.name}</Card.Title>
 			      <Card.Text>{cat.description}</Card.Text>
-			      <Button variant="primary">Select <Badge variant="light">{cat.clicks}</Badge></Button>
+			      <Button variant="primary" onClick={this.props.onClick} value={index}>
+			      	Select <Badge variant="light">{cat.clicks}</Badge>
+			      </Button>
 			    </Card.Body>
 			  </Card>
 			);
