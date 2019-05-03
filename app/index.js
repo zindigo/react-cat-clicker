@@ -33,8 +33,22 @@ class App extends React.Component {
 		super(props);
 
 		this.state = {
-			cats: cats
+			cats: cats,
+			selected: 0
 		}
+
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick(e) {
+		// increment clicks for selected cat
+		const selectedCat = this.state.selected;
+		var clickedCats = cats;
+		clickedCats[selectedCat].clicks++;
+
+		this.setState({
+			cats: clickedCats
+		});
 	}
 
 	render() {
@@ -48,6 +62,7 @@ class App extends React.Component {
 				    <Col>
 				    	<BigImage
 				    		src={this.state.cats[0].src}
+				    		onClick={this.handleClick}
 				    	/>
 				    	Clicks: {this.state.cats[0].clicks}
 				    </Col>
