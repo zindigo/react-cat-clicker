@@ -8,7 +8,7 @@ import Badge from 'react-bootstrap/Badge';
 export class BigImage extends React.Component {
 	render() {
 		return (
-		   <Image src={this.props.src} rounded fluid />
+		   <Image src={this.props.src} onClick={this.props.onClick} rounded fluid />
 		);
 	}
 };
@@ -17,7 +17,7 @@ export class CatChoices extends React.Component {
 	render() {
 		const catList = this.props.cats;
 		const catBlocks = catList.map((cat) =>
-			  <Card>
+			  <Card key={cat.name}>
 			    <Card.Img variant="top" src={cat.src} />
 			    <Card.Body>
 			      <Card.Title>{cat.name}</Card.Title>
