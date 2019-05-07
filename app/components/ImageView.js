@@ -23,8 +23,9 @@ export class CatChoices extends React.Component {
 			      <Card.Title>{cat.name}</Card.Title>
 			      <Card.Text>{cat.description}</Card.Text>
 			      <Button variant="primary" onClick={this.props.onClick} value={index}>
-			      	Select <Badge variant="light">{cat.clicks}</Badge>
+			      	Select
 			      </Button>
+			      <Badge variant="light">{cat.clicks}</Badge>
 			    </Card.Body>
 			  </Card>
 			);
